@@ -1,5 +1,5 @@
 """""""""""""""""""""""""""自定义"""""""""""""""""""""""""""""""""
-
+"China No 1.
 noremap <c-g> gg=G       "绑定ctrl+g
 inoremap jk <esc>        "绑定j+k为<esc>
 iabbrev @@ Email:k0n4mll@yahoo.com   "绑定输入@@替换为邮箱
