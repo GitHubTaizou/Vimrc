@@ -1,5 +1,5 @@
 """""""""""""""""""""""""""自定义"""""""""""""""""""""""""""""""""
-"China No 1.
+
 noremap <c-g> gg=G       "绑定ctrl+g
 inoremap jk <esc>        "绑定j+k为<esc>
 iabbrev @@ Email:k0n4mll@yahoo.com   "绑定输入@@替换为邮箱
@@ -14,41 +14,42 @@ augroup END              "设置messages多输出一个 QAQ
 
 
 
-set shortmess=atI   " 启动的时候不显示那个援助乌干达儿童的提示  
+set shortmess=atI   " 启动的时候不显示那个援助乌干达儿童的提示
 
-"winpos 5 5          " 设定窗口位置  
+"winpos 5 5          " 设定窗口位置
 
-"set lines=40 columns=155    " 设定窗口大小  
-set nu              " 显示行号  
+"set lines=40 columns=155    " 设定窗口大小
 
-set go=             " 不要图形按钮  
+set nu              " 显示行号
 
-"color asmanian2     " 设置背景主题  
+set go=             " 不要图形按钮
 
-set guifont=Courier_New:h10:cANSI   " 设置字体  
+"color asmanian2     " 设置背景主题
 
-""color slate
+set guifont=Courier_New:h10:cANSI   " 设置字体
 
-autocmd InsertLeave * se nocul  " 用浅色高亮当前行  
+"color slate
 
-autocmd InsertEnter * se cul    " 用浅色高亮当前行  
+autocmd InsertLeave * se nocul  " 用浅色高亮当前行
 
-set ruler           " 显示标尺  
+autocmd InsertEnter * se cul    " 用浅色高亮当前行
 
-set showcmd         " 输入的命令显示出来，看的清楚些  
+set ruler           " 显示标尺
 
-set cmdheight=1     " 命令行（在状态行下）的高度，设置为1  
+set showcmd         " 输入的命令显示出来，看的清楚些
 
-"set whichwrap+=<,>,h,l   " 允许backspace和光标键跨越行边界(不建议)  
+set cmdheight=1     " 命令行（在状态行下）的高度，设置为1
 
-"set scrolloff=3     " 光标移动到buffer的顶部和底部时保持3行距离  
+"set whichwrap+=<,>,h,l   " 允许backspace和光标键跨越行边界(不建议)
 
-set novisualbell    " 不要闪烁(不明白)  
+"set scrolloff=3     " 光标移动到buffer的顶部和底部时保持3行距离
+
+set novisualbell    " 不要闪烁(不明白)
 
 
 """"""""""""""""""""""""""状态行显示的内容""""""""""""""""""""""""
 
-set laststatus=1    " 启动显示状态行(1),总是显示状态行(2)  
+set laststatus=1    " 启动显示状态行(1),总是显示状态行(2)
 
 set cmdheight=1     " 命令行（在状态行下）的高度，默认为1
 
@@ -71,13 +72,18 @@ set statusline=[文件路径=%F%m%r%h%w]\ [文件系统=%{&ff}]\ [文件类型=%
 
 
 
-set foldenable      " 允许折叠  
+set foldenable      " 允许折叠
 
-set foldmethod=manual   " 手动折叠  
+set foldmethod=manual   " 手动折叠
 
-set background=dark "背景使用黑色 
+set background=dark "背景使用黑色
 
-set nocompatible  "去掉讨厌的有关vi一致性模式，避免以前版本的一些bug和局限  
+set nocompatible  "去掉讨厌的有关vi一致性模式，避免以前版本的一些bug和局限
+
+
+" 设置配色方案
+
+"colorscheme murphy
 
 " 显示中文帮助
 
@@ -89,19 +95,17 @@ if version >= 603
 
 endif
 
-" 设置配色方案
+"语言设置
 
-"colorscheme murphy
+set langmenu=zh_CN.UTF-8
 
-"字体 
+"字体
 
-"if (has("gui_running")) 
+"if (has("gui_running"))
 
-"   set guifont=Bitstream\ Vera\ Sans\ Mono\ 10 
+"   set guifont=Bitstream\ Vera\ Sans\ Mono\ 10
 
-"endif 
-
-
+"endif
 
 set fencs=utf-8,ucs-bom,shift-jis,gb18030,gbk,gb2312,cp936
 
@@ -116,52 +120,51 @@ set fileencoding=utf-8
 
 
 
-
 """"""""""""""""""""""""""""""""""""""""""""""
 
 "自动插入文件头
 
 """"""""""""""""""""""""""""""""""""""""""""""
 
-"新建.c,.h,.sh,.java文件，自动插入文件头 
+"新建.c,.h,.sh,.java文件，自动插入文件头
 
-""定义函数SetTitle，自动插入文件头 
+"定义函数SetTitle，自动插入文件头
 
-func! SetTitle() 
+func! SetTitle()
 
-    "如果文件类型为.sh文件 
+    "如果文件类型为.sh文件
 
-    if &filetype == 'sh' 
+    if &filetype == 'sh'
 
-        call setline(1,"\#########################################################################") 
+        call setline(1,"\#########################################################################")
 
-        call append(line("."), "\# File Name: ".expand("%")) 
+        call append(line("."), "\# File Name: ".expand("%"))
 
-        call append(line(".")+1, "\# Author: lala") 
+        call append(line(".")+1, "\# Author: lala")
 
-        call append(line(".")+2, "\# mail: k04mll@yahoo.com") 
+        call append(line(".")+2, "\# mail: k04mll@yahoo.com")
 
-        call append(line(".")+3, "\# Created Time: ".strftime("%c")) 
+        call append(line(".")+3, "\# Created Time: ".strftime("%c"))
 
-        call append(line(".")+4, "\#########################################################################") 
+        call append(line(".")+4, "\#########################################################################")
 
-        call append(line(".")+5, "\#!/bin/bash") 
+        call append(line(".")+5, "\#!/bin/bash")
 
-        call append(line(".")+6, "") 
+        call append(line(".")+6, "")
 
-    else 
+    else
 
-        call setline(1, "/*************************************************************************") 
+        call setline(1, "/*************************************************************************")
 
-        call append(line("."), "\# File Name: ".expand("%")) 
+        call append(line("."), "\# File Name: ".expand("%"))
 
-        call append(line(".")+1, "\# Author: lala") 
+        call append(line(".")+1, "\# Author: lala")
 
-        call append(line(".")+2, "\# mail: k0n4mll@yahoo.com") 
+        call append(line(".")+2, "\# mail: k0n4mll@yahoo.com")
 
-        call append(line(".")+3, "\# Created Time: ".strftime("%c")) 
+        call append(line(".")+3, "\# Created Time: ".strftime("%c"))
 
-        call append(line(".")+4, " ************************************************************************/") 
+        call append(line(".")+4, " ************************************************************************/")
 
         call append(line(".")+5, "")
 
@@ -189,7 +192,7 @@ func! SetTitle()
 
     autocmd BufNewFile * normal G
 
-endfunc 
+endfunc
 
 
 
@@ -212,32 +215,32 @@ nmap <leader>f :find<cr>
 map <C-A> ggVGY
 
 map! <C-A> <Esc>ggVGY
-  
+
 map <F12> gg=G
 
 " 选中状态下 Ctrl+c 复制
 
 vmap <C-c> "+y
 
-"去空行  
+"去空行
 
-nnoremap <F2> :g/^\s*$/d<CR> 
+nnoremap <F2> :g/^\s*$/d<CR>
 
-"比较文件  
+"比较文件
 
-nnoremap <C-F2> :vert diffsplit 
+nnoremap <C-F2> :vert diffsplit
 
-"新建标签 w     
+"新建标签 w
 
-map <M-F2> :tabnew<CR>  
+map <M-F2> :tabnew<CR>
 
-"列出当前目录文件  
+"列出当前目录文件
 
-map <F3> :tabnew .<CR>  
+map <F3> :tabnew .<CR>
 
-"打开树状文件目录  
+"打开树状文件目录
 
-map <C-F3> \be  
+map <C-F3> \be
 
 "C，C++ 按F5编译运行
 
@@ -259,9 +262,9 @@ func! CompileRunGcc()
 
         exec "! ./%<"
 
-    elseif &filetype == 'java' 
+    elseif &filetype == 'java'
 
-        exec "!javac %" 
+        exec "!javac %"
 
         exec "!java %<"
 
@@ -308,19 +311,19 @@ set autoread
 
 autocmd FileType c,cpp map <buffer> <leader><space> :w<cr>:make<cr>
 
-"代码补全 
+"代码补全
 
-set completeopt=preview,menu 
+set completeopt=preview,menu
 
-"允许插件  
+"允许插件
 
 filetype plugin on
 
-"共享剪贴板  
+"共享剪贴板
 
-set clipboard+=unnamed 
+set clipboard+=unnamed
 
-"从不备份  
+"从不备份
 
 set nobackup
 
@@ -342,14 +345,13 @@ set guioptions-=m           " 隐藏菜单栏
 
 set foldcolumn=0
 
-set foldmethod=indent 
+set foldmethod=indent
 
-set foldlevel=3 
+set foldlevel=3
 
 " 不要使用vi的键盘模式，而是vim自己的
 
 set nocompatible
-
 
 " 去掉输入错误的提示声音
 
@@ -410,19 +412,6 @@ set incsearch
 "行内替换
 
 set gdefault
-
-"编码设置
-
-set enc=utf-8
-
-set fencs=utf-8,ucs-bom,shift-jis,gb18030,gbk,gb2312,cp936
-
-"语言设置
-
-set langmenu=zh_CN.UTF-8
-
-set helplang=cn
-
 
 " 侦测文件类型
 
@@ -528,7 +517,7 @@ function! ClosePair(char)
 
 endfunction
 
-filetype plugin indent on 
+filetype plugin indent on
 
 "打开文件类型检测, 加了这句才可以用智能补全
 
@@ -539,33 +528,33 @@ set completeopt=longest,menu
 
 """"""""""""""""""""""""""""""""""""""""""""""
 
-" CTags的设定  
+" CTags的设定
 
 """"""""""""""""""""""""""""""""""""""""""""""
 
-let Tlist_Sort_Type = "name"    " 按照名称排序  
+let Tlist_Sort_Type = "name"    " 按照名称排序
 
-let Tlist_Use_Right_Window = 1  " 在右侧显示窗口  
+let Tlist_Use_Right_Window = 1  " 在右侧显示窗口
 
-let Tlist_Compart_Format = 1    " 压缩方式  
+let Tlist_Compart_Format = 1    " 压缩方式
 
-let Tlist_Exist_OnlyWindow = 1  " 如果只有一个buffer，kill窗口也kill掉buffer  
+let Tlist_Exist_OnlyWindow = 1  " 如果只有一个buffer，kill窗口也kill掉buffer
 
-let Tlist_File_Fold_Auto_Close = 0  " 不要关闭其他文件的tags  
+let Tlist_File_Fold_Auto_Close = 0  " 不要关闭其他文件的tags
 
-let Tlist_Enable_Fold_Column = 0    " 不要显示折叠树  
+let Tlist_Enable_Fold_Column = 0    " 不要显示折叠树
 
-autocmd FileType java set tags+=D:\tools\java\tags  
+autocmd FileType java set tags+=D:\tools\java\tags
 
-"autocmd FileType h,cpp,cc,c set tags+=D:\tools\cpp\tags  
+"autocmd FileType h,cpp,cc,c set tags+=D:\tools\cpp\tags
 
 "let Tlist_Show_One_File=1            "不同时显示多个文件的tag，只显示当前文件的
 
-"设置tags  
+"设置tags
 
-set tags=tags  
+set tags=tags
 
-"set autochdir 
+"set autochdir
 
 
 
@@ -575,21 +564,21 @@ set tags=tags
 
 """"""""""""""""""""""""""""""""""""""""""""""
 
-"默认打开Taglist 
+"默认打开Taglist
 
-let Tlist_Auto_Open=1 
+let Tlist_Auto_Open=1
 
-"""""""""""""""""""""""""""""" 
+""""""""""""""""""""""""""""""
 
-" Tag list (ctags) 
+" Tag list (ctags)
 
-"""""""""""""""""""""""""""""""" 
+""""""""""""""""""""""""""""""""
 
-let Tlist_Ctags_Cmd = '/usr/bin/ctags' 
+let Tlist_Ctags_Cmd = '/usr/bin/ctags'
 
-let Tlist_Show_One_File = 1 "不同时显示多个文件的tag，只显示当前文件的 
+let Tlist_Show_One_File = 1 "不同时显示多个文件的tag，只显示当前文件的
 
-let Tlist_Exit_OnlyWindow = 1 "如果taglist窗口是最后一个窗口，则退出vim 
+let Tlist_Exit_OnlyWindow = 1 "如果taglist窗口是最后一个窗口，则退出vim
 
 let Tlist_Use_Right_Window = 1 "在右侧窗口中显示taglist窗口
 
